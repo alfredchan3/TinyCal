@@ -12,6 +12,13 @@ struct TinyCalApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                #if os(macOS)
+                .frame(minWidth: 320, idealWidth: 380, maxWidth: 500,
+                       minHeight: 360, idealHeight: 420, maxHeight: 600)
+                #endif
         }
+        #if os(macOS)
+        .windowResizability(.contentSize)
+        #endif
     }
 }
